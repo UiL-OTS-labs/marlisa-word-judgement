@@ -1,5 +1,5 @@
 # marlisa-word-judgement
-Judge which of the two stimuli is the best English stimulus.
+Judge which of the two utterances is the best pronounced.
 
 This is not an experiment. The idea of this "experiment" is to ask from
 native speaker to judge which of two utterances of a word is the most accurate.
