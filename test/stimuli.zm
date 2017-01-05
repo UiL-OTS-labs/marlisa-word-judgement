@@ -8,24 +8,49 @@
  * the training
  */
 
+plugin zep_file;
+
 enum ItemType {
     PRACTICE,       // Practice trial.
 
     CONTROL_BT,     // control group first word is a word before the training.
     CONTROL_AT,     // first word is a word after the training
     TEST_BT,        // test(experimental group) utterance prior to training
-                    //first.
+                    // first.
     TEST_AT         // test an utterance after the training is presented first.
 };
 
 
 record TestItem {
-    ItemType        item;       // the type of item.
-    string          fn1;        // filename of the first stimulus.
-    string          fn2;        // filename of the second stimulus.
+    int             id;         // Number that identifies the test item.
+    ItemType        type;       // the type of item.
+    string          phoneme;    // the target phoneme.
+    string          word;       // the word that is in the auditory utterances
+    string          sentence;   // An example sentence where the word occurs.
+    string          fn1;        // file name of the first stimulus.
+    string          fn2;        // file name of the second stimulus.
 };
 
 // is loaded from csv.
-TestItem[..] stimuli = {};
+TestItem[..] prac_items;
+TestItem[..] test_items;
 
+int testlist = -1;
 
+int select_list(int nthlist)
+{
+    int err;
+    testlist = nthlist;
+    string fn = stimuli_dir() + "stimuli" + string(nthlist) + ".csv";
+    string pracfn = stimuli_dir() + "prac_items.csv";
+
+    if (file_exists(fn)) {
+        err = test_items.load(fn, true, 1);
+        if (err) return err;
+        err = prac_items.load(pracfn, true, 1);
+    }
+    else
+        err = ERROR;
+
+    return err;
+}

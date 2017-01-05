@@ -21,6 +21,7 @@ HISTORY:
 
 import stimuli;
 import std_sound_output_device;
+import defs;
 
 Page test_page
 {
@@ -35,18 +36,13 @@ Page test_page
     on_event:key_press()
     {
         // Handle left-shift (no) and right-shift (yes).
-        if (input_key == KEY_Shift_L)
-            response.process_hit(0, event_time);
-        else if (input_key == KEY_Shift_R)
-            response.process_hit(1, event_time);
-        else
-            handle_special_key(this, input_key, input_modifiers);
+        handle_special_key(this, input_key, input_modifiers);
     }
 
     on_event:message()
     {
         // Process button-box message. See setup() below.
-        response.process_hit(message_arg, event_time);
+        // response.process_hit(message_arg, event_time);
     }
 
     // Two word sound chain
@@ -69,7 +65,7 @@ Page test_page
 
         on_event:finish()
         {
-            page.layout.show_response_buttons();
+            test_page.layout.show_response_buttons();
         }
     }
 
@@ -97,12 +93,20 @@ Page test_page
         }
     }
 
+    bool sound_busy()
+    {
+        return  soundchain.is_busy         ||
+                soundchain_first.is_busy   ||
+                soundchain_second.is_busy;
+    }
+
     VerticalLayout layout
     {
         init()
         {
             spacing = 50;
             height = 0;     // 0 means as large as possible
+            is_visible = true;
         }
 
 
@@ -115,21 +119,42 @@ Page test_page
                 
                 font_family = TEST_PAGE_STIMULUS_FONT_FAMILY;
                 font_size = TEST_PAGE_STIMULUS_FONT_SIZE;
-                line_pattern_color = TEST_PAGE_STIMULUS_TEXT_COLOR;
+                text_color = TEST_PAGE_STIMULUS_TEXT_COLOR;
                 hor_alignment = ALIGN_CENTER;
                 ver_alignment = ALIGN_CENTER;
             }
         }
 
-        HorizontalLayout repeat_buttons
+        // button to repeat both stimuli.
+        ButtonGadget button_repall
+        {
+            init()
+            {
+                text               = BUTTON_REPEAT_BOTH_TEXT;
+                fill_pattern_color = TEST_PAGE_BUTTON_COLOR;
+                text_color         = TEST_PAGE_BUTTON_TEXT_COLOR;
+                font_size          = TEST_PAGE_BUTTON_FONT_SIZE;
+                font_family        = TEST_PAGE_BUTTON_FONT_FAMILY;
+            }
+
+            on_event:activate()
+            {
+                if(!sound_busy())
+                    soundchain.start(event_time + 50ms);
+            }
+        }
+
+        // buttons to repeat either the first or the second stimulus.
+        HorizontalLayout layout_repbutton
         {
             init()
             {
                 spacing = 50;
                 options = LAYOUT_EQUAL_WIDTH;
+                is_visible = true;
             }
 
-
+            // button to repeat the first
             ButtonGadget button_repfirst
             {
                 init()
@@ -145,11 +170,12 @@ Page test_page
 
                 on_event:activate()
                 {
-                    //response.process_hit(0, event_time);
+                    if (!sound_busy())
+                        soundchain_first.start(event_time + 50ms);
                 }
             }
 
-
+            // button to repeat the second
             ButtonGadget button_repsecond
             {
                 init()
@@ -165,26 +191,95 @@ Page test_page
 
                 on_event:activate()
                 {
-                    //response.process_hit(1, event_time);
+                    if (!sound_busy())
+                        soundchain_second.start(event_time + 50ms);
                 }
             }
         }
 
+        // Buttons to respond
+        HorizontalLayout layout_resp
+        {
+            ButtonGadget button_respfirst
+            {
+                init()
+                {
+                    text = BUTTON_FIRST_CORRECT_TEXT;
+                    font_family = TEST_PAGE_BUTTON_FONT_FAMILY;
+                    font_size = TEST_PAGE_BUTTON_FONT_SIZE;
+                    fill_pattern_color = TEST_PAGE_BUTTON_COLOR;
+                    text_color = TEST_PAGE_BUTTON_TEXT_COLOR;
+                    size = 150, 75;
+                }
+
+                on_event:activate()
+                {
+                    show_continue_button();
+                }
+            }
+            
+            ButtonGadget button_respsecond
+            {
+                init()
+                {
+                    text = BUTTON_REPEAT_SECOND_TEXT;
+                    font_family = TEST_PAGE_BUTTON_FONT_FAMILY;
+                    font_size = TEST_PAGE_BUTTON_FONT_SIZE;
+                    fill_pattern_color = TEST_PAGE_BUTTON_COLOR;
+                    text_color = TEST_PAGE_BUTTON_TEXT_COLOR;
+                    size = 150, 75;
+                }
+
+
+                on_event:activate()
+                {
+                    show_continue_button();
+                }
+            }
+        }
+
+        ButtonGadget continue_button
+        {
+            init()
+            {
+                text = BUTTON_REPEAT_SECOND_TEXT;
+                font_family = TEST_PAGE_BUTTON_FONT_FAMILY;
+                font_size = TEST_PAGE_BUTTON_FONT_SIZE;
+                fill_pattern_color = TEST_PAGE_BUTTON_COLOR;
+                text_color = TEST_PAGE_BUTTON_TEXT_COLOR;
+                size = 150, 75;
+            }
+
+            on_event:activate()
+            {
+                done(CONTINUE);
+            }
+        }
+
+        void show_response_buttons()
+        {
+            if (SHOW_REPEAT_FIRST_BUTTON)
+                layout_repbutton.button_repfirst.is_visible = true;
+            if (SHOW_REPEAT_SECOND_BUTTON)
+                layout_repbutton.button_repsecond.is_visible = true;
+            if (SHOW_REPEAT_BOTH_BUTTON)
+                button_repall.is_visible = true;
+        }
+
+        void show_continue_button()
+        {
+            continue_button.is_visible = true;
+        }
 
         time start_stimulus(time t)
         {
             // Prepare stimulus presentation object.
-            canvas.stimulus.text = item.word;
+            layout.word.text = item.word;
 
-            // Start fixation cross.
-            canvas.fixation.start(t, FIXATION_DURATION);
-            time fixoffset = canvas.fixation.expected_finish_time;
-
-            // Start stimulus at fixation offset.
-            canvas.stimulus.start(fixoffset, STIMULUS_DURATION);
+            soundchain.start(t);
 
             // Return stimulus onset time.
-            return canvas.stimulus.expected_start_time;
+            return soundchain.expected_start_time;
         }
 
 
@@ -192,69 +287,13 @@ Page test_page
         {
             full_abort();
 
-            canvas.stimulus.is_visible = false;
+            layout.button_repall.is_visible = false;
+            layout.layout_repbutton.button_repfirst.is_visible = false;
+            layout.layout_repbutton.button_repsecond.is_visible = false;
+            layout.layout_resp.button_respfirst.is_visible = false;
+            layout.layout_resp.button_respsecond.is_visible = false;
         }
     }
-
-
-    Response response
-    {
-        // Response data.
-        int     value;          // response value: 0=no, 1=yes, -1=timeout
-        int     rt;             // response time [ms]
-        int     correct;        // correct response: 0=no, 1=yes, -1=n.a.
-
-
-        void clear()
-        {
-            value = -1;
-            rt = -9999;
-            correct = -1;
-        }
-
-
-        void process_hit(int val, time t)
-        {
-            HitType validity = hit(t);
-
-            // Accept the first hit in the response interval and end the 
-            // response interval.
-            if (validity == HIT_VALID)
-            {
-                value = val;
-                rt = int(reaction_time(0));
-                correct = 
-                    (item.type != NON_WORD && val == 1) ||
-                    (item.type == NON_WORD && val == 0);
-
-                ignore_remaining_hits();
-
-                stop();
-            }
-            else if (validity == HIT_TOO_EARLY || validity == HIT_TOO_LATE)
-            {
-                // False alarm. Deal with this if desired.
-            }
-        }
-
-
-        on_event:finish()
-        {
-            real correctness = 0;
-            if (num_valid_hits > 0) correctness = correct ? 1 : -1;
-
-            if (!test_page_overlay.start_feedback(this, correctness, 
-                    FEEDBACK_DURATION)) 
-                done(CONTINUE);
-        }
-
-
-        on_event:message()
-        {
-            done(CONTINUE);
-        }
-    }
-
 
     // Aborts any ongoing activity on this page and signals the initiator
     // of the trial that we're done.
@@ -292,8 +331,6 @@ Page test_page
         // Enable button-box buttons 0 and 1 for resp. no(0) and yes(1).
         control.target = this;
         control.button_box.disable_buttons();
-        control.button_box.enable_button(0, 0); // button 0 means no(0)
-        control.button_box.enable_button(1, 1); // button 1 means yes(1)
     }
 
 
@@ -318,22 +355,11 @@ Page test_page
         tref = test_window1.show_test_page(this, tref + INTERTRIAL_INTERVAL);
 
 
-        // Reset response data.
-        response.clear();
-
-
         // Start fixation symbol and stimulus.
         time stimonset = layout.start_stimulus(tref);
 
-
-        // Response interval starts at stimulus onset. Timeout after 
-        // RESPONSE_DURATION unless this duration is 0s or less.
-        response.start(stimonset, RESPONSE_DURATION);
-
-
         // Update progress counter (if enabled).
         test_page_overlay.update_progress_bar(count);
-
 
         // Update status line on control window. Cleared in done() above.
         control.set_status(

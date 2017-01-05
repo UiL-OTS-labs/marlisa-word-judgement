@@ -23,3 +23,13 @@ const string BUTTON_REPEAT_FIRST_TEXT =
 
 const string BUTTON_REPEAT_SECOND_TEXT =
         "Repeat second word";
+
+const string BUTTON_REPEAT_BOTH_TEXT =
+        "Repeat";
+
+const string BUTTON_FIRST_CORRECT_TEXT =
+        "First";
+
+const string BUTTON_SECOND_CORRECT_TEXT =
+        "second";
+

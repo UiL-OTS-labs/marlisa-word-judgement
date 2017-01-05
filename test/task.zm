@@ -11,6 +11,14 @@ Block task
         // if neccessary 
         // control.button_box.open();
     }
+    
+    Part blank1
+    {
+        on_event:entry()
+        {
+            blank_page.action_auto(this, 500ms);
+        }
+    }
 
     Part part_instructions
     {
@@ -22,18 +30,28 @@ Block task
         }
     }
 
+    Part blank2
+    {
+        on_event:entry()
+        {
+            blank_page.action_auto(this, 500ms);
+        }
+    }
+
     Part choose_part
     {
         on_event:entry()
         {
-            choose_page.action(this);
+            choose_page.action(this, reference_time);
         }
 
         on_event:exit()
         {
             int value = choose_page.selected_list;
             // from stimuli
-            select_list(value);
+            int err = select_list(value);
+            if (err)
+                terminate "Unable to load stimuli.\r\n";
         }
     }
 

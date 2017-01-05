@@ -23,10 +23,11 @@ Page choose_page
         {
             init()
             {
-                caption = "Choose the set.";
+                text        = "Choose the part.";
                 font_family = TEST_PAGE_STIMULUS_FONT_FAMILY;
-                font_size = TEST_PAGE_STIMULUS_FONT_SIZE;
-                line_pattern_color = TEST_PAGE_STIMULUS_TEXT_COLOR;
+                font_size   = TEST_PAGE_STIMULUS_FONT_SIZE;
+                text_color =
+                              TEST_PAGE_STIMULUS_TEXT_COLOR;
             }
         }
 
@@ -109,9 +110,12 @@ Page choose_page
         }
     }
 
-    void setup(Object caller)
+    void action(Part caller, time tref)
     {
-        choose_page.caller = caller;
+        target = caller;
+
+        // Show this page (if not yet done) and make tref the trial start time.
+        tref = test_window1.show_test_page(this, tref + INTERTRIAL_INTERVAL);
     }
 
     void done()

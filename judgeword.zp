@@ -42,7 +42,7 @@ Experiment experiment
     {
         on_event:entry()
         {
-            test.action(this);
+            test::action(this);
         }
     }
 

@@ -15,3 +15,12 @@ const dur       INTERTRIAL_INTERVAL             = 500ms;
 
 // Duration of the feedback presentation.
 const dur       FEEDBACK_DURATION               = 1000ms;
+
+// Do we show the repeat first utterance button
+const bool      SHOW_REPEAT_FIRST_BUTTON        = true;
+
+// Do we show the repeat second utterance button
+const bool      SHOW_REPEAT_SECOND_BUTTON       = true;
+
+// Do we show the repeat second utterance button
+const bool      SHOW_REPEAT_BOTH_BUTTON         = true;
