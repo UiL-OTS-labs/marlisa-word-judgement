@@ -1,0 +1,57 @@
+
+import choose_page;
+import test_page;
+import instructions;
+import stimuli;
+
+Block task
+{
+    on_event:entry()
+    {
+        // if neccessary 
+        // control.button_box.open();
+    }
+
+    Part part_instructions
+    {
+        on_event:entry()
+        {
+            pause_page.set_text(PART_INSTRUCTION, true);
+            pause_page.action(this);
+            control.button_box.enable_all_buttons(CONTINUE);
+        }
+    }
+
+    Part choose_part
+    {
+        on_event:entry()
+        {
+            choose_page.action(this);
+        }
+
+        on_event:exit()
+        {
+            int value = choose_page.selected_list;
+            // from stimuli
+            select_list(value);
+        }
+    }
+
+    Part test_instructions
+    {
+        on_event:entry()
+        {
+            pause_page.set_text(TEST_INSTRUCTION, true);
+            pause_page.action(this);
+            control.button_box.enable_all_buttons(CONTINUE);
+        }
+    }
+
+
+}
+
+void action (Part caller)
+{
+    // Enter needs a caller, to signal when the task finishes.
+    task.enter(caller);
+}

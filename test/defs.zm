@@ -1,0 +1,17 @@
+/******************************************************************************\
+FILE:           defs.zm
+AUTHOR:         Theo Veenker <theo.veenker@beexy.nl>
+ADAPTED BY:     Maarten Duijndam
+
+DESCRIPTION:
+
+Defines experiment settings such as for trial timing.
+
+\******************************************************************************/
+
+
+// Duration of the interval between two trials.
+const dur       INTERTRIAL_INTERVAL             = 500ms;
+
+// Duration of the feedback presentation.
+const dur       FEEDBACK_DURATION               = 1000ms;

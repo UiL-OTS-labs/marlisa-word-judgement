@@ -1,0 +1,31 @@
+
+/**
+ * Defines the properties of a stimulus and trial
+ */
+
+/**
+ * ItemType defines the whether the first word is a word prior to
+ * the training
+ */
+
+enum ItemType {
+    PRACTICE,       // Practice trial.
+
+    CONTROL_BT,     // control group first word is a word before the training.
+    CONTROL_AT,     // first word is a word after the training
+    TEST_BT,        // test(experimental group) utterance prior to training
+                    //first.
+    TEST_AT         // test an utterance after the training is presented first.
+};
+
+
+record TestItem {
+    ItemType        item;       // the type of item.
+    string          fn1;        // filename of the first stimulus.
+    string          fn2;        // filename of the second stimulus.
+};
+
+// is loaded from csv.
+TestItem[..] stimuli = {};
+
+

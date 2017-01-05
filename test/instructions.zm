@@ -1,0 +1,25 @@
+
+
+// The instruction about how to choose the parts.
+const string PART_INSTRUCTION =
+       M"<b>Dear Participant</b>\n\n"
+        "Welcome to this test.\n"
+        "The test consists of four parts, you'll have to complete them"
+        "all, but feel free to take a break between them. In the next phase "
+        "You can choose part 1, 2, 3 or 4 by pressing a button."
+        ;
+
+const string TEST_INSTRUCTION =
+       M"You are about to hear two utterances of a word. "
+        "please choose whether the first or second utterance matches "
+        "the word that is on top the best according to British English. "
+        "If you are unsure you can choose to listen again. "
+        "If you are sure which one fits best, press continue to go to the next. "
+        "You have to provide an answer.\\"
+        ;
+
+const string BUTTON_REPEAT_FIRST_TEXT =
+        "Repeat first word";
+
+const string BUTTON_REPEAT_SECOND_TEXT =
+        "Repeat second word";

@@ -1,0 +1,121 @@
+
+// A page to choose the set of items included in this test.
+
+Page choose_page
+{
+    // The selected list 
+    int     selected_list = -1;
+
+    init()
+    {
+        fill_pattern_color = TEST_PAGE_COLOR;
+    }
+
+    VerticalLayout vlayout
+    {
+        init()
+        {
+            spacing = 50;
+            height = 0;
+        }
+
+        LabelGadget label
+        {
+            init()
+            {
+                caption = "Choose the set.";
+                font_family = TEST_PAGE_STIMULUS_FONT_FAMILY;
+                font_size = TEST_PAGE_STIMULUS_FONT_SIZE;
+                line_pattern_color = TEST_PAGE_STIMULUS_TEXT_COLOR;
+            }
+        }
+
+        HorizontalLayout hlayout1
+        {
+            init ()
+            {
+                spacing = 50;
+                width = 0;
+            }
+
+            ButtonGadget button0
+            {
+                init()
+                {
+                    text = "Part 1";
+                }
+
+                activate()
+                {
+                    // return number as index.
+                    selected_list = 0;
+                    done();
+                }
+            }
+            
+            ButtonGadget button1
+            {
+                init()
+                {
+                    text = "Part 2";
+                }
+
+                activate()
+                {
+                    // return number as index.
+                    selected_list = 1;
+                    done();
+                }
+            }
+        }
+        
+        HorizontalLayout hlayout2
+        {
+            init ()
+            {
+                spacing = 50;
+                width = 0;
+            }
+
+            ButtonGadget button2
+            {
+                init()
+                {
+                    text = "Part 3";
+                }
+
+                activate()
+                {
+                    // return number as index.
+                    selected_list = 2;
+                    done();
+                }
+            }
+            
+            ButtonGadget button3
+            {
+                init()
+                {
+                    text = "Part 4";
+                }
+
+                activate()
+                {
+                    // return number as index.
+                    selected_list = 3;
+                    done();
+                }
+            }
+        }
+    }
+
+    void setup(Object caller)
+    {
+        choose_page.caller = caller;
+    }
+
+    void done()
+    {
+        signal_target(CONTINUE);
+    }
+}

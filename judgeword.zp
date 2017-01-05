@@ -1,0 +1,58 @@
+
+
+import std_windows1;
+import std_texts_en;
+import std_exit_page1;
+import std_entry_page1;
+import std_pause_page;
+import std_blank_page;
+
+import test::task;
+
+Experiment experiment
+{
+    // show the test windows.
+    on_event:entry()
+    {
+        show_test_windows();
+    }
+
+    // handle exitting from task
+    on_event:message()
+    {
+        // On Ctrl+F4 jump to the exit part
+        if (message_sender == control && message_arg == SYS_STOP)
+        {
+            control.mark_experiment_aborted();
+            thankyou.enter();
+        }
+    }
+
+    Part welcome
+    {
+        on_event:entry()
+        {
+            entry_page.set_text(WELCOME_TEXT);
+            entry_page.action(this, 0s);
+        }
+    }
+
+    // start the experiment
+    Part phase1
+    {
+        on_event:entry()
+        {
+            test.action(this);
+        }
+    }
+
+    Part thankyou
+    {
+        on_event:entry()
+        {
+            control.end_experiment();
+            exit_page.set_text(THANK_YOU_TEXT);
+            exit_page.action(this, 5s);
+        }
+    }
+}
