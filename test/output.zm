@@ -11,10 +11,12 @@ record TestOutput
 {
     int         trialnum;
     int         id;
+    int         part;
     ItemType    type;
     string      fn1;
     string      fn2;
     string      word;
+    string      phoneme;
     RespId      response;
 };
 

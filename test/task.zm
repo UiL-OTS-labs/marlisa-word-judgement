@@ -97,10 +97,12 @@ Block task
                 TestOutput out;
                 out.trialnum    = testblock.cycle + 1;
                 out.id          = item.id;
+                out.part        = testlist + 1;
                 out.type        = item.type;
                 out.fn1         = item.fn1;
                 out.fn2         = item.fn2;
                 out.word        = item.word;
+                out.phoneme     = item.phoneme;
                 out.response    = test_page.resp;
 
                 test_output_append(out);
