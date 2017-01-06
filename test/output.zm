@@ -1,6 +1,7 @@
 
 
 enum RespId {
+    NO_RESP,
     FIRST,
     SECOND
 };
@@ -10,9 +11,9 @@ record TestOutput
 {
     int         trialnum;
     int         id;
+    ItemType    type;
     string      fn1;
     string      fn2;
-    ItemType    type;
     string      word;
     RespId      response;
 };

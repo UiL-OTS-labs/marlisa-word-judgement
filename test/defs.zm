@@ -13,8 +13,8 @@ Defines experiment settings such as for trial timing.
 // Duration of the interval between two trials.
 const dur       INTERTRIAL_INTERVAL             = 500ms;
 
-// Duration of the feedback presentation.
-const dur       FEEDBACK_DURATION               = 1000ms;
+// Duration of the isi (time between the two utterances).
+const dur       ISI                             = 500ms;
 
 // Do we show the repeat first utterance button
 const bool      SHOW_REPEAT_FIRST_BUTTON        = true;
@@ -24,3 +24,5 @@ const bool      SHOW_REPEAT_SECOND_BUTTON       = true;
 
 // Do we show the repeat second utterance button
 const bool      SHOW_REPEAT_BOTH_BUTTON         = true;
+
+color           CHOSEN_BUTTON_COLOR             = rgbi:20/80/20;

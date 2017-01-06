@@ -9,15 +9,25 @@ const string PART_INSTRUCTION =
         "You can choose part 1, 2, 3 or 4 by pressing a button."
         ;
 
+// Choose page prompt + button textual values.
+const string CHOOSE_PROMT = "Choose the part to start.";
+const string CHOOSE_PART1_TEXT = "Part 1";
+const string CHOOSE_PART2_TEXT = "Part 2";
+const string CHOOSE_PART3_TEXT = "Part 3";
+const string CHOOSE_PART4_TEXT = "Part 4";
+
+
+// The instructions prior to the test.
 const string TEST_INSTRUCTION =
        M"You are about to hear two utterances of a word. "
         "please choose whether the first or second utterance matches "
         "the word that is on top the best according to British English. "
         "If you are unsure you can choose to listen again. "
         "If you are sure which one fits best, press continue to go to the next. "
-        "You have to provide an answer.\\"
+        "You have to provide an answer."
         ;
 
+// Texts on the buttons of the experiment.
 const string BUTTON_REPEAT_FIRST_TEXT =
         "Repeat first word";
 
@@ -31,5 +41,5 @@ const string BUTTON_FIRST_CORRECT_TEXT =
         "First";
 
 const string BUTTON_SECOND_CORRECT_TEXT =
-        "second";
+        "Second";
 

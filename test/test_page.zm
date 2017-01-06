@@ -26,6 +26,7 @@ import defs;
 Page test_page
 {
     TestItem    item;           // trial control parameters
+    RespId      resp;
 
     init()
     {
@@ -48,7 +49,7 @@ Page test_page
     // Two word sound chain
     SoundChain soundchain
     {
-        SoundSequence
+        SoundSequence sequence
         {
             SoundFile word1
             {
@@ -67,6 +68,23 @@ Page test_page
         {
             test_page.layout.show_response_buttons();
         }
+
+        time play(time t)
+        {
+            // abort all sound chains
+            abort();
+            soundchain_first.abort();
+            soundchain_second.abort();
+
+            // make sure a sound_output_device is selected.
+            playback.device = sound_output_device;
+            sequence.word1.file = stimuli_dir() + "audio/" + item.fn1;
+            sequence.word1.trailer_duration = ISI;
+            sequence.word2.file = stimuli_dir() + "audio/" + item.fn2;
+
+            start(t);
+            return expected_start_time;
+        }
     }
 
     // Sound chain to repeat first word.
@@ -79,6 +97,15 @@ Page test_page
         SoundPlayback playback
         {
         }
+
+        time play(time t)
+        {
+            // make sure a sound_output_device is selected.
+            playback.device = sound_output_device;
+            word1.file = stimuli_dir() + "audio/" + item.fn1;
+            start(t);
+            return expected_start_time;
+        }
     }
 
     // Sound chain to repeat first word.
@@ -90,6 +117,15 @@ Page test_page
 
         SoundPlayback playback
         {
+        }
+        
+        time play(time t)
+        {
+            // make sure a sound_output_device is selected.
+            playback.device = sound_output_device;
+            word2.file = stimuli_dir() + "audio/" + item.fn2;
+            start(t);
+            return expected_start_time;
         }
     }
 
@@ -104,7 +140,7 @@ Page test_page
     {
         init()
         {
-            spacing = 50;
+            spacing = 25;
             height = 0;     // 0 means as large as possible
             is_visible = true;
         }
@@ -114,12 +150,28 @@ Page test_page
         {
             init()
             {
-                fill_pattern_color = TEST_PAGE_STIMULUS_COLOR;
+                fill_pattern_color = TEST_PAGE_LABEL_COLOR;
                 size = 450, 100;
                 
                 font_family = TEST_PAGE_STIMULUS_FONT_FAMILY;
                 font_size = TEST_PAGE_STIMULUS_FONT_SIZE;
-                text_color = TEST_PAGE_STIMULUS_TEXT_COLOR;
+                text_color = TEST_PAGE_LABEL_TEXT_COLOR;
+                hor_alignment = ALIGN_CENTER;
+                ver_alignment = ALIGN_CENTER;
+            }
+        }
+
+        LabelGadget sentence
+        {
+            init()
+            {
+                fill_pattern_color = TEST_PAGE_LABEL_COLOR;
+                height  = 100;
+                width   = 0;
+                
+                font_family = TEST_PAGE_STIMULUS_FONT_FAMILY;
+                font_size = TEST_PAGE_STIMULUS_FONT_SIZE;
+                text_color = TEST_PAGE_LABEL_TEXT_COLOR;
                 hor_alignment = ALIGN_CENTER;
                 ver_alignment = ALIGN_CENTER;
             }
@@ -130,6 +182,7 @@ Page test_page
         {
             init()
             {
+                is_visible         = false;
                 text               = BUTTON_REPEAT_BOTH_TEXT;
                 fill_pattern_color = TEST_PAGE_BUTTON_COLOR;
                 text_color         = TEST_PAGE_BUTTON_TEXT_COLOR;
@@ -140,7 +193,7 @@ Page test_page
             on_event:activate()
             {
                 if(!sound_busy())
-                    soundchain.start(event_time + 50ms);
+                    soundchain.play(event_time + 50ms);
             }
         }
 
@@ -159,19 +212,20 @@ Page test_page
             {
                 init()
                 {
+                    is_visible = false;
                     text = BUTTON_REPEAT_FIRST_TEXT;
                     font_family = TEST_PAGE_BUTTON_FONT_FAMILY;
                     font_size = TEST_PAGE_BUTTON_FONT_SIZE;
                     fill_pattern_color = TEST_PAGE_BUTTON_COLOR;
                     text_color = TEST_PAGE_BUTTON_TEXT_COLOR;
-                    size = 150, 75;
+                    size = 300, 75;
                 }
 
 
                 on_event:activate()
                 {
                     if (!sound_busy())
-                        soundchain_first.start(event_time + 50ms);
+                        soundchain_first.play(event_time + 50ms);
                 }
             }
 
@@ -180,19 +234,20 @@ Page test_page
             {
                 init()
                 {
+                    is_visible = false;
                     text = BUTTON_REPEAT_SECOND_TEXT;
                     font_family = TEST_PAGE_BUTTON_FONT_FAMILY;
                     font_size = TEST_PAGE_BUTTON_FONT_SIZE;
                     fill_pattern_color = TEST_PAGE_BUTTON_COLOR;
                     text_color = TEST_PAGE_BUTTON_TEXT_COLOR;
-                    size = 150, 75;
+                    size = 300, 75;
                 }
 
 
                 on_event:activate()
                 {
                     if (!sound_busy())
-                        soundchain_second.start(event_time + 50ms);
+                        soundchain_second.play(event_time + 50ms);
                 }
             }
         }
@@ -200,21 +255,33 @@ Page test_page
         // Buttons to respond
         HorizontalLayout layout_resp
         {
+            on_event:init ()
+            {
+                spacing = 50;
+                options = LAYOUT_EQUAL_WIDTH;
+                is_visible = true;
+            }
+
             ButtonGadget button_respfirst
             {
                 init()
                 {
+                    is_visible = false;
                     text = BUTTON_FIRST_CORRECT_TEXT;
                     font_family = TEST_PAGE_BUTTON_FONT_FAMILY;
                     font_size = TEST_PAGE_BUTTON_FONT_SIZE;
                     fill_pattern_color = TEST_PAGE_BUTTON_COLOR;
                     text_color = TEST_PAGE_BUTTON_TEXT_COLOR;
-                    size = 150, 75;
+                    size = 300, 75;
                 }
 
                 on_event:activate()
                 {
                     show_continue_button();
+                    button_respsecond.fill_pattern_color =
+                            TEST_PAGE_BUTTON_COLOR;
+                    fill_pattern_color = CHOSEN_BUTTON_COLOR;
+                    resp = FIRST;
                 }
             }
             
@@ -222,18 +289,24 @@ Page test_page
             {
                 init()
                 {
-                    text = BUTTON_REPEAT_SECOND_TEXT;
+                    is_visible = false;
+                    text = BUTTON_SECOND_CORRECT_TEXT;
                     font_family = TEST_PAGE_BUTTON_FONT_FAMILY;
                     font_size = TEST_PAGE_BUTTON_FONT_SIZE;
                     fill_pattern_color = TEST_PAGE_BUTTON_COLOR;
                     text_color = TEST_PAGE_BUTTON_TEXT_COLOR;
-                    size = 150, 75;
+                    size = 300, 75;
+
                 }
 
 
                 on_event:activate()
                 {
                     show_continue_button();
+                    button_respfirst.fill_pattern_color =
+                            TEST_PAGE_BUTTON_COLOR;
+                    fill_pattern_color = CHOSEN_BUTTON_COLOR;
+                    resp = SECOND;
                 }
             }
         }
@@ -242,7 +315,8 @@ Page test_page
         {
             init()
             {
-                text = BUTTON_REPEAT_SECOND_TEXT;
+                is_visible = false;
+                text = CONTINUE_BUTTON_TEXT;
                 font_family = TEST_PAGE_BUTTON_FONT_FAMILY;
                 font_size = TEST_PAGE_BUTTON_FONT_SIZE;
                 fill_pattern_color = TEST_PAGE_BUTTON_COLOR;
@@ -261,9 +335,12 @@ Page test_page
             if (SHOW_REPEAT_FIRST_BUTTON)
                 layout_repbutton.button_repfirst.is_visible = true;
             if (SHOW_REPEAT_SECOND_BUTTON)
-                layout_repbutton.button_repsecond.is_visible = true;
+                layout_repbutton.button_repsecond.is_visible= true;
             if (SHOW_REPEAT_BOTH_BUTTON)
-                button_repall.is_visible = true;
+                button_repall.is_visible                    = true;
+
+            layout_resp.button_respfirst.is_visible         = true;
+            layout_resp.button_respsecond.is_visible        = true;
         }
 
         void show_continue_button()
@@ -274,9 +351,10 @@ Page test_page
         time start_stimulus(time t)
         {
             // Prepare stimulus presentation object.
-            layout.word.text = item.word;
-
-            soundchain.start(t);
+            layout.word.text = item.word, true;
+            layout.sentence.text = item.sentence, true;
+            
+            soundchain.play(t);
 
             // Return stimulus onset time.
             return soundchain.expected_start_time;
@@ -292,6 +370,12 @@ Page test_page
             layout.layout_repbutton.button_repsecond.is_visible = false;
             layout.layout_resp.button_respfirst.is_visible = false;
             layout.layout_resp.button_respsecond.is_visible = false;
+            layout.continue_button.is_visible = false;
+            
+            layout.layout_resp.button_respfirst.fill_pattern_color =
+                    TEST_PAGE_BUTTON_COLOR;
+            layout.layout_resp.button_respsecond.fill_pattern_color =
+                    TEST_PAGE_BUTTON_COLOR;
         }
     }
 
@@ -313,13 +397,9 @@ Page test_page
 
 
     // Performs preparatory work required before using this page.
-    void setup(int ntrials=-1, bool fb=false, bool pr=false)
+    void setup(int ntrials=-1, bool fb=false)
     {
         test_page_overlay.setup(this);
-
-        // Show or hide prompt.
-        test_page_overlay.show_prompt(pr ? 
-            "is it a real word?" : "");
 
         // Enable or disable the progress bar.
         test_page_overlay.show_progress_bar(ntrials);   // disabled if < 0
@@ -349,7 +429,9 @@ Page test_page
     {
         // Save the passed trial control parameters.
         item = it;
-
+        
+        // set the chosen button to false;
+        resp = NO_RESP;
 
         // Show this page (if not yet done) and make tref the trial start time.
         tref = test_window1.show_test_page(this, tref + INTERTRIAL_INTERVAL);
@@ -365,7 +447,8 @@ Page test_page
         control.set_status(
             string(item.id) + "  " + 
             string(item.type) + "  " + 
-            string(item.word));
+            string(item.word)
+            );
 
 
         // Remember who to signal when the trial is over.

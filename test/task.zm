@@ -3,6 +3,8 @@ import choose_page;
 import test_page;
 import instructions;
 import stimuli;
+import output;
+import std_sound_output_device;
 
 Block task
 {
@@ -11,12 +13,12 @@ Block task
         // if neccessary 
         // control.button_box.open();
     }
-    
+
     Part blank1
     {
         on_event:entry()
         {
-            blank_page.action_auto(this, 500ms);
+            blank_page.action_auto(this, 250ms);
         }
     }
 
@@ -34,7 +36,7 @@ Block task
     {
         on_event:entry()
         {
-            blank_page.action_auto(this, 500ms);
+            blank_page.action_auto(this, 250ms);
         }
     }
 
@@ -65,7 +67,46 @@ Block task
         }
     }
 
+    Block testblock
+    {
+        TestItem item;
 
+        on_event:entry()
+        {
+            num_cycles = test_items.size;
+            test_page.setup(num_cycles, true);
+        }
+
+        on_event:exit()
+        {
+            test_output_save();
+            test_page.cleanup();
+        }
+
+        Trial trial
+        {
+
+            on_event:entry()
+            {
+                item = test_items[testblock.cycle];
+                test_page.action(this, item, reference_time, testblock.cycle);
+            }
+
+            on_event:exit()
+            {
+                TestOutput out;
+                out.trialnum    = testblock.cycle + 1;
+                out.id          = item.id;
+                out.type        = item.type;
+                out.fn1         = item.fn1;
+                out.fn2         = item.fn2;
+                out.word        = item.word;
+                out.response    = test_page.resp;
+
+                test_output_append(out);
+            }
+        }
+    }
 }
 
 void action (Part caller)

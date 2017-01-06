@@ -11,6 +11,7 @@ Page choose_page
         fill_pattern_color = TEST_PAGE_COLOR;
     }
 
+    // This widget contains all prompts and buttons.
     VerticalLayout vlayout
     {
         init()
@@ -19,18 +20,19 @@ Page choose_page
             height = 0;
         }
 
+        // Label to prompt the participants.
         LabelGadget label
         {
             init()
             {
-                text        = "Choose the part.";
-                font_family = TEST_PAGE_STIMULUS_FONT_FAMILY;
-                font_size   = TEST_PAGE_STIMULUS_FONT_SIZE;
-                text_color =
-                              TEST_PAGE_STIMULUS_TEXT_COLOR;
+                text        = CHOOSE_PROMT
+                font_family = TEST_PAGE_LABEL_FONT_FAMILY;
+                font_size   = TEST_PAGE_LABEL_FONT_SIZE;
+                text_color  = TEST_PAGE_LABEL_TEXT_COLOR;
             }
         }
 
+        // Layout that contains the two upper buttons.
         HorizontalLayout hlayout1
         {
             init ()
@@ -43,7 +45,7 @@ Page choose_page
             {
                 init()
                 {
-                    text = "Part 1";
+                    text = CHOOSE_PART1_TEXT;
                 }
 
                 activate()
@@ -58,7 +60,7 @@ Page choose_page
             {
                 init()
                 {
-                    text = "Part 2";
+                    text = CHOOSE_PART2_TEXT;
                 }
 
                 activate()
@@ -70,6 +72,7 @@ Page choose_page
             }
         }
         
+        // Layout that contains the two lower buttons.
         HorizontalLayout hlayout2
         {
             init ()
@@ -82,7 +85,7 @@ Page choose_page
             {
                 init()
                 {
-                    text = "Part 3";
+                    text = CHOOSE_PART3_TEXT;
                 }
 
                 activate()
@@ -97,7 +100,7 @@ Page choose_page
             {
                 init()
                 {
-                    text = "Part 4";
+                    text = CHOOSE_PART4_TEXT;
                 }
 
                 activate()
