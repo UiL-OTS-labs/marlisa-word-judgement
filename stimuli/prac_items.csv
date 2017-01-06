@@ -1,0 +1,11 @@
+id;type ;fn1;fn2;phoneme;word;sentence
+1;CONTROL_AT;AC21but.wav;BC21but.wav;u;but;"It hurts; <b>but</b> I’m fine."
+2;CONTROL_AT;AC21look.wav;BC21look.wav;oo;look;
+3;CONTROL_AT;AC21those.wav;BC21those.wav;o;those;Look at <i>those</i> guys.
+4;TEST_AT;AT81less.wav;BT81less.wav;e;less;
+5;TEST_AT;AT81raw.wav;BT81raw.wav;a;raw;"I’v got a ;<b><i>raw</i></b> feeling in my throat."
+6;CONTROL_BT;BC21less_noise.wav;AC21less.wav;e;less;Now it hurts less.
+7;CONTROL_BT;BC21raw.wav;AC21raw.wav;a;raw;
+8;TEST_BT;BT81but.wav;AT81but.wav;u;but;
+9;TEST_BT;BT81look.wav;AT81look.wav;oo;look;
+10;TEST_BT;BT81those.wav;AT81those.wav;o;those;
