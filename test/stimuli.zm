@@ -35,22 +35,53 @@ record TestItem {
 TestItem[..] prac_items;
 TestItem[..] test_items;
 
+void append_test_item(TestItem item)
+{
+    test_items.size = test_items.size + 1;
+    test_items[test_items.size - 1] = item;
+}
+
+// Just a temporary storage of test items
+TestItem[..] tmp_test_items;
+
+
 int testlist = -1;
+
+int load_prac_stims()
+{
+    int err;
+    string pracfn = stimuli_dir() + "prac_items.csv";
+    err = prac_items.load(pracfn, true, 0);
+    return err;
+}
 
 int select_list(int nthlist)
 {
     int err;
     testlist = nthlist;
-    string fn = stimuli_dir() + "stimuli" /*+ string(nthlist) +*/ ".csv";
-    string pracfn = stimuli_dir() + "prac_items.csv";
+    string fn = stimuli_dir() + "stimuli.csv";
 
     if (file_exists(fn)) {
-        err = test_items.load(fn, true, 0);
+        err = tmp_test_items.load(fn, true, 0);
         if (err) return err;
-        err = prac_items.load(pracfn, true, 0);
     }
     else
         err = ERROR;
+
+    if (tmp_test_items.size > 0) {
+        if (nthlist >= NUM_PARTS) {
+            println(
+                "Error while loading stimuli bigger "
+                "list chosen than anticipated."
+                );
+            err = ERROR;
+        }
+        int i = tmp_test_items.size / NUM_PARTS * nthlist;
+        while( i < tmp_test_items.size / NUM_PARTS * (nthlist + 1)) {
+            append_test_item(tmp_test_items[i]);
+            i++;
+        }
+    }
 
     return err;
 }

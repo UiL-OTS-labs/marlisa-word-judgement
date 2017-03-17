@@ -1,4 +1,5 @@
-
+const string PRACTICE_INSTRUCTION =
+       M"practice instruction";
 
 // The instruction about how to choose the parts.
 const string PART_INSTRUCTION =

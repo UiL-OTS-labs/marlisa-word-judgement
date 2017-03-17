@@ -77,52 +77,53 @@ Page choose_page
                 }
             }
         }
-        
-        // Layout that contains the two lower buttons.
-        HorizontalLayout hlayout2
-        {
-            init ()
-            {
-                spacing = 50;
-                width = 0;
-            }
-
-            ButtonGadget button2
-            {
-                init()
-                {
-                    text = CHOOSE_PART3_TEXT;
-                    font_family = TEST_PAGE_BUTTON_FONT_FAMILY;
-                    font_size   = TEST_PAGE_BUTTON_FONT_SIZE;
-                    text_color  = TEST_PAGE_BUTTON_TEXT_COLOR;
-                }
-
-                activate()
-                {
-                    // return number as index.
-                    selected_list = 2;
-                    done();
-                }
-            }
-            
-            ButtonGadget button3
-            {
-                init()
-                {
-                    text = CHOOSE_PART4_TEXT;
-                    font_family = TEST_PAGE_BUTTON_FONT_FAMILY;
-                    font_size   = TEST_PAGE_BUTTON_FONT_SIZE;
-                    text_color  = TEST_PAGE_BUTTON_TEXT_COLOR;
-                }
-
-                activate()
-                {
-                    // return number as index.
-                    selected_list = 3;
-                    done();
-                }
-            }
-        }
+// This was originally designed for 4 choices.
+//        
+//        // Layout that contains the two lower buttons.
+//        HorizontalLayout hlayout2
+//        {
+//            init ()
+//            {
+//                spacing = 50;
+//                width = 0;
+//            }
+//
+//            ButtonGadget button2
+//            {
+//                init()
+//                {
+//                    text = CHOOSE_PART3_TEXT;
+//                    font_family = TEST_PAGE_BUTTON_FONT_FAMILY;
+//                    font_size   = TEST_PAGE_BUTTON_FONT_SIZE;
+//                    text_color  = TEST_PAGE_BUTTON_TEXT_COLOR;
+//                }
+//
+//                activate()
+//                {
+//                    // return number as index.
+//                    selected_list = 2;
+//                    done();
+//                }
+//            }
+//            
+//            ButtonGadget button3
+//            {
+//                init()
+//                {
+//                    text = CHOOSE_PART4_TEXT;
+//                    font_family = TEST_PAGE_BUTTON_FONT_FAMILY;
+//                    font_size   = TEST_PAGE_BUTTON_FONT_SIZE;
+//                    text_color  = TEST_PAGE_BUTTON_TEXT_COLOR;
+//                }
+//
+//                activate()
+//                {
+//                    // return number as index.
+//                    selected_list = 3;
+//                    done();
+//                }
+//            }
+//        }
     }
 
     void action(Part caller, time tref)

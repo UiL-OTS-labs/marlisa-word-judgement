@@ -12,6 +12,8 @@ Block task
     {
         // if neccessary 
         // control.button_box.open();
+        if (load_prac_stims() != OK )
+            terminate "Unable to load practice items.";
     }
 
     Part blank1
@@ -22,6 +24,62 @@ Block task
         }
     }
 
+    Part practice_instructions
+    {
+        on_event:entry()
+        {
+            pause_page.set_text(PRACTICE_INSTRUCTION, true);
+            pause_page.action(this);
+            control.button_box.enable_all_buttons(CONTINUE);
+        }
+    }
+
+    Part blank2
+    {
+        on_event:entry()
+        {
+            blank_page.action_auto(this, 250ms);
+        }
+    }
+
+    Block pracblock
+    {
+        TestItem item;
+        
+        on_event:entry()
+        {
+            num_cycles = prac_items.size;
+            test_page.setup(num_cycles, true);
+        }
+
+        on_event:exit()
+        {
+            test_page.cleanup();
+        }
+        
+        Trial trial
+        {
+            on_event:entry()
+            {
+                item = prac_items[pracblock.cycle];
+                test_page.action(this, item, reference_time, pracblock.cycle);
+            }
+
+            on_event:exit()
+            {
+                // practice nothing to save.
+            }
+        }
+    }
+    
+    Part blank3
+    {
+        on_event:entry()
+        {
+            blank_page.action_auto(this, 250ms);
+        }
+    }
+    
     Part part_instructions
     {
         on_event:entry()
@@ -31,8 +89,8 @@ Block task
             control.button_box.enable_all_buttons(CONTINUE);
         }
     }
-
-    Part blank2
+    
+    Part blank4
     {
         on_event:entry()
         {
@@ -56,6 +114,14 @@ Block task
                 terminate "Unable to load stimuli.\r\n";
         }
     }
+    
+    Part blank5
+    {
+        on_event:entry()
+        {
+            blank_page.action_auto(this, 250ms);
+        }
+    }
 
     Part test_instructions
     {
@@ -64,6 +130,14 @@ Block task
             pause_page.set_text(TEST_INSTRUCTION, true);
             pause_page.action(this);
             control.button_box.enable_all_buttons(CONTINUE);
+        }
+    }
+    
+    Part blank6
+    {
+        on_event:entry()
+        {
+            blank_page.action_auto(this, 250ms);
         }
     }
 

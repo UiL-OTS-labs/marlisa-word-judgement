@@ -26,3 +26,5 @@ const bool      SHOW_REPEAT_SECOND_BUTTON       = true;
 const bool      SHOW_REPEAT_BOTH_BUTTON         = true;
 
 color           CHOSEN_BUTTON_COLOR             = rgbi:20/80/20;
+
+const int       NUM_PARTS                       = 2;
