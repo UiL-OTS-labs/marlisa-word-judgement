@@ -17,7 +17,8 @@ enum ItemType {
     CONTROL_AT,     // first word is a word after the training
     TEST_BT,        // test(experimental group) utterance prior to training
                     // first.
-    TEST_AT         // test an utterance after the training is presented first.
+    TEST_AT,        // test an utterance after the training is presented first.
+    TEST_RT         // Retention test
 };
 
 
