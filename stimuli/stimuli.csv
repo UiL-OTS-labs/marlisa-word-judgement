@@ -1,11 +1,374 @@
 id;type ;fn1;fn2;phoneme;word;sentence
-1;CONTROL_AT;AC21but.wav;BC21but.wav;u;but;"It hurts, <b>but</b> I’m fine."
-2;CONTROL_AT;AC21look.wav;BC21look.wav;oo;look;
-3;CONTROL_AT;AC21those.wav;BC21those.wav;o;those;Look at <i>those</i> guys.
-4;TEST_AT;AT81less.wav;BT81less.wav;e;less;
-5;TEST_AT;AT81raw.wav;BT81raw.wav;a;raw;"I’ve got a <b><i>raw</i></b> feeling in my throat."
-6;CONTROL_BT;BC21less_noise.wav;AC21less.wav;e;less;Now it hurts less.
-7;CONTROL_BT;BC21raw.wav;AC21raw.wav;a;raw;
-8;TEST_BT;BT81but.wav;AT81but.wav;u;but;
-9;TEST_BT;BT81look.wav;AT81look.wav;oo;look;
-10;TEST_BT;BT81those.wav;AT81those.wav;o;those;
+1;TEST_AT;AT86bathe.wav;BT86bathe.wav;the;the;He likes to <b><i>bathe</i></b>
+2;CONTROL_AT;AC42bathe.wav;BC42bathe.wav;the;the;He likes to <b><i>bathe</i></b>
+3;CONTROL_BT;BC42death.wav;AC42death.wav;th;th;What causes sudden <b><i>death</i></b>?
+4;TEST_BT;BT86death.wav;AT86death.wav;th;th;What causes sudden <b><i>death</i></b>?
+5;CONTROL_BT;BC42look.wav;AC42look.wav;oo;oo;I always <b><i>look</i></b> good
+6;CONTROL_BT;BC42lot.wav;AC42lot.wav;o;o;I like him a <b><i>lot</i></b>
+7;CONTROL_AT;AC42thanks.wav;BC42thanks.wav;th;th;He did not even say <b><i>thanks</i></b>
+8;CONTROL_AT;AC42those.wav;BC42those.wav;th;th;I want <b><i>those</i></b> shoes
+9;CONTROL_BT;BC2death.wav;AC2death.wav;th;th;What causes sudden <b><i>death</i></b>?
+10;CONTROL_BT; BC2bathe.wav;AC2bathe.wav;the;the;He likes to <b><i>bathe</i></b>
+11;CONTROL_BT;BC2look.wav;AC2look.wav;oo;oo;I always <b><i>look</i></b> good
+12;CONTROL_BT;BC2lot.wav;AC2lot.wav;o;o;I like him a <b><i>lot</i></b>
+13;CONTROL_AT;AC2thanks.wav;BC2thanks.wav;th;th;He did not even say <b><i>thanks</i></b>
+14;CONTROL_AT;AC2those.wav;BC2those.wav;th;th;I want <b><i>those</i></b> shoes
+15;CONTROL_BT;BC37death.wav;AC37death.wav;th;th;What causes sudden <b><i>death</i></b>?
+16;CONTROL_BT; BC37bathe.wav;AC37bathe.wav;the;the;He likes to <b><i>bathe</i></b>
+17;CONTROL_BT;BC37look.wav;AC37look.wav;oo;oo;I always <b><i>look</i></b> good
+18;CONTROL_BT;BC37lot.wav;AC37lot.wav;o;o;I like him a <b><i>lot</i></b>
+19;CONTROL_AT;AC37thanks.wav;BC37thanks.wav;th;th;He did not even say <b><i>thanks</i></b>
+20;CONTROL_AT;AC37those.wav;BC37those.wav;th;th;I want <b><i>those</i></b> shoes
+21;CONTROL_BT;BC5death.wav;AC5death.wav;th;th;What causes sudden <b><i>death</i></b>?
+22;CONTROL_BT;BC5lot.wav;AC5lot.wav;o;o;I like him a <b><i>lot</i></b>
+23;CONTROL_AT;AC5thanks.wav;BC5thanks.wav;th;th;He did not even say <b><i>thanks</i></b>
+24;CONTROL_AT;AC5those.wav;BC5those.wav;th;th;I want <b><i>those</i></b> shoes
+25;CONTROL_BT;BC24death.wav;AC24death.wav;th;th;What causes sudden <b><i>death</i></b>?
+26;CONTROL_BT; BC24bathe.wav;AC24bathe.wav;the;the;He likes to <b><i>bathe</i></b>
+27;CONTROL_BT;BC24look.wav;AC24look.wav;oo;oo;I always <b><i>look</i></b> good
+28;CONTROL_BT;BC24lot.wav;AC24lot.wav;o;o;I like him a <b><i>lot</i></b>
+29;CONTROL_AT;AC24thanks.wav;BC24thanks.wav;th;th;He did not even say <b><i>thanks</i></b>
+30;CONTROL_AT;AC24those.wav;BC24those.wav;th;th;I want <b><i>those</i></b> shoes
+31;TEST_AT;AT86look.wav;BT86look.wav;oo;oo;I always <b><i>look</i></b> good
+32;TEST_AT;AT86lot.wav;BT86lot.wav;o;o;I like him a <b><i>lot</i></b>
+33;TEST_BT;BT86thanks.wav;AT86thanks.wav;th;th;He did not even say <b><i>thanks</i></b>
+34;TEST_BT;BT86those.wav;AT86those.wav;th;th;I want <b><i>those</i></b> shoes
+35;TEST_RT;RT86bathe.wav;AT86bathe.wav;the;the;He likes to <b><i>bathe</i></b>
+36;TEST_AT;AT86death.wav;RT86death.wav;th;th;What causes sudden <b><i>death</i></b>?
+37;TEST_RT;RT86look.wav;AT86look.wav;oo;oo;I always <b><i>look</i></b> good
+38;TEST_AT;AT86lot.wav;RT86lot.wav;o;o;I like him a <b><i>lot</i></b>
+39;TEST_AT;AT86thanks.wav;RT86thanks.wav;th;th;He did not even say <b><i>thanks</i></b>
+40;TEST_AT;AT86those.wav;RT86those.wav;th;th;I want <b><i>those</i></b> shoes
+41;TEST_RT;RT86bathe.wav;BT86bathe.wav;the;the;He likes to <b><i>bathe</i></b>
+42;TEST_RT;RT86death.wav;BT86death.wav;th;th;What causes sudden <b><i>death</i></b>?
+43;TEST_BT;BT86look.wav;RT86look.wav;oo;oo;I always <b><i>look</i></b> good
+44;TEST_RT;RT86lot.wav;BT86lot.wav;o;o;I like him a <b><i>lot</i></b>
+45;TEST_BT;BT86thanks.wav;RT86thanks.wav;th;th;He did not even say <b><i>thanks</i></b>
+46;TEST_RT;RT86those.wav;BT86those.wav;th;th;I want <b><i>those</i></b> shoes
+47;TEST_AT;AT52bathe.wav;BT52bathe.wav;the;the;He likes to <b><i>bathe</i></b>
+48;TEST_BT;BT52death.wav;AT52death.wav;th;th;What causes sudden <b><i>death</i></b>?
+49;TEST_AT;AT52look.wav;BT52look.wav;oo;oo;I always <b><i>look</i></b> good
+50;TEST_AT;AT52lot.wav;BT52lot.wav;o;o;I like him a <b><i>lot</i></b>
+51;TEST_BT;BT52thanks.wav;AT52thanks.wav;th;th;He did not even say <b><i>thanks</i></b>
+52;TEST_BT;BT52those.wav;AT52those.wav;th;th;I want <b><i>those</i></b> shoes
+53;TEST_RT;RT52bathe.wav;AT52bathe.wav;the;the;He likes to <b><i>bathe</i></b>
+54;TEST_AT;AT52death.wav;RT52death.wav;th;th;What causes sudden <b><i>death</i></b>?
+55;TEST_RT;RT52look.wav;AT52look.wav;oo;oo;I always <b><i>look</i></b> good
+56;TEST_AT;AT52lot.wav;RT52lot.wav;o;o;I like him a <b><i>lot</i></b>
+57;TEST_AT;AT52thanks.wav;RT52thanks.wav;th;th;He did not even say <b><i>thanks</i></b>
+58;TEST_AT;AT52those.wav;RT52those.wav;th;th;I want <b><i>those</i></b> shoes
+59;TEST_RT;RT52bathe.wav;BT52bathe.wav;the;the;He likes to <b><i>bathe</i></b>
+60;TEST_RT;RT52death.wav;BT52death.wav;th;th;What causes sudden <b><i>death</i></b>?
+61;TEST_BT;BT52look.wav;RT52look.wav;oo;oo;I always <b><i>look</i></b> good
+62;TEST_RT;RT52lot.wav;BT52lot.wav;o;o;I like him a <b><i>lot</i></b>
+63;TEST_BT;BT52thanks.wav;RT52thanks.wav;th;th;He did not even say <b><i>thanks</i></b>
+64;TEST_RT;RT52those.wav;BT52those.wav;th;th;I want <b><i>those</i></b> shoes
+65;TEST_AT;AT54bathe.wav;BT54bathe.wav;the;the;He likes to <b><i>bathe</i></b>
+66;TEST_BT;BT54death.wav;AT54death.wav;th;th;What causes sudden <b><i>death</i></b>?
+67;TEST_AT;AT54look.wav;BT54look.wav;oo;oo;I always <b><i>look</i></b> good
+68;TEST_AT;AT54lot.wav;BT54lot.wav;o;o;I like him a <b><i>lot</i></b>
+69;TEST_BT;BT54thanks.wav;AT54thanks.wav;th;th;He did not even say <b><i>thanks</i></b>
+70;TEST_BT;BT54those.wav;AT54those.wav;th;th;I want <b><i>those</i></b> shoes
+71;TEST_RT;RT54bathe.wav;AT54bathe.wav;the;the;He likes to <b><i>bathe</i></b>
+72;TEST_AT;AT54death.wav;RT54death.wav;th;th;What causes sudden <b><i>death</i></b>?
+73;TEST_RT;RT54look.wav;AT54look.wav;oo;oo;I always <b><i>look</i></b> good
+74;TEST_AT;AT54lot.wav;RT54lot.wav;o;o;I like him a <b><i>lot</i></b>
+75;TEST_AT;AT54thanks.wav;RT54thanks.wav;th;th;He did not even say <b><i>thanks</i></b>
+76;TEST_AT;AT54those.wav;RT54those.wav;th;th;I want <b><i>those</i></b> shoes
+77;TEST_RT;RT54bathe.wav;BT54bathe.wav;the;the;He likes to <b><i>bathe</i></b>
+78;TEST_RT;RT54death.wav;BT54death.wav;th;th;What causes sudden <b><i>death</i></b>?
+79;TEST_BT;BT54look.wav;RT54look.wav;oo;oo;I always <b><i>look</i></b> good
+80;TEST_RT;RT54lot.wav;BT54lot.wav;o;o;I like him a <b><i>lot</i></b>
+81;TEST_BT;BT54thanks.wav;RT54thanks.wav;th;th;He did not even say <b><i>thanks</i></b>
+82;TEST_RT;RT54those.wav;BT54those.wav;th;th;I want <b><i>those</i></b> shoes
+83;TEST_AT;AT76bathe.wav;BT76bathe.wav;the;the;He likes to <b><i>bathe</i></b>
+84;TEST_BT;BT76death.wav;AT76death.wav;th;th;What causes sudden <b><i>death</i></b>?
+85;TEST_AT;AT76look.wav;BT76look.wav;oo;oo;I always <b><i>look</i></b> good
+86;TEST_AT;AT76lot.wav;BT76lot.wav;o;o;I like him a <b><i>lot</i></b>
+87;TEST_BT;BT76thanks.wav;AT76thanks.wav;th;th;He did not even say <b><i>thanks</i></b>
+88;TEST_BT;BT76those.wav;AT76those.wav;th;th;I want <b><i>those</i></b> shoes
+89;TEST_RT;RT76bathe.wav;AT76bathe.wav;the;the;He likes to <b><i>bathe</i></b>
+90;TEST_AT;AT76death.wav;RT76death.wav;th;th;What causes sudden <b><i>death</i></b>?
+91;TEST_RT;RT76look.wav;AT76look.wav;oo;oo;I always <b><i>look</i></b> good
+92;TEST_AT;AT76lot.wav;RT76lot.wav;o;o;I like him a <b><i>lot</i></b>
+93;TEST_AT;AT76thanks.wav;RT76thanks.wav;th;th;He did not even say <b><i>thanks</i></b>
+94;TEST_AT;AT76those.wav;RT76those.wav;th;th;I want <b><i>those</i></b> shoes
+95;TEST_RT;RT76bathe.wav;BT76bathe.wav;the;the;He likes to <b><i>bathe</i></b>
+96;TEST_RT;RT76death.wav;BT76death.wav;th;th;What causes sudden <b><i>death</i></b>?
+97;TEST_BT;BT76look.wav;RT76look.wav;oo;oo;I always <b><i>look</i></b> good
+98;TEST_RT;RT76lot.wav;BT76lot.wav;o;o;I like him a <b><i>lot</i></b>
+99;TEST_BT;BT76thanks.wav;RT76thanks.wav;th;th;He did not even say <b><i>thanks</i></b>
+100;TEST_RT;RT76those.wav;BT76those.wav;th;th;I want <b><i>those</i></b> shoes
+101;TEST_AT;AT57bathe.wav;BT57bathe.wav;the;the;He likes to <b><i>bathe</i></b>
+102;TEST_BT;BT57death.wav;AT57death.wav;th;th;What causes sudden <b><i>death</i></b>?
+103;TEST_AT;AT57look.wav;BT57look.wav;oo;oo;I always <b><i>look</i></b> good
+104;TEST_AT;AT57lot.wav;BT57lot.wav;o;o;I like him a <b><i>lot</i></b>
+105;TEST_BT;BT57thanks.wav;AT57thanks.wav;th;th;He did not even say <b><i>thanks</i></b>
+106;TEST_BT;BT57those.wav;AT57those.wav;th;th;I want <b><i>those</i></b> shoes
+107;TEST_RT;RT57bathe.wav;AT57bathe.wav;the;the;He likes to <b><i>bathe</i></b>
+108;TEST_AT;AT57death.wav;RT57death.wav;th;th;What causes sudden <b><i>death</i></b>?
+109;TEST_RT;RT57look.wav;AT57look.wav;oo;oo;I always <b><i>look</i></b> good
+110;TEST_AT;AT57lot.wav;RT57lot.wav;o;o;I like him a <b><i>lot</i></b>
+111;TEST_AT;AT57thanks.wav;RT57thanks.wav;th;th;He did not even say <b><i>thanks</i></b>
+112;TEST_AT;AT57those.wav;RT57those.wav;th;th;I want <b><i>those</i></b> shoes
+113;TEST_RT;RT57bathe.wav;BT57bathe.wav;the;the;He likes to <b><i>bathe</i></b>
+114;TEST_RT;RT57death.wav;BT57death.wav;th;th;What causes sudden <b><i>death</i></b>?
+115;TEST_BT;BT57look.wav;RT57look.wav;oo;oo;I always <b><i>look</i></b> good
+116;TEST_RT;RT57lot.wav;BT57lot.wav;o;o;I like him a <b><i>lot</i></b>
+117;TEST_BT;BT57thanks.wav;RT57thanks.wav;th;th;He did not even say <b><i>thanks</i></b>
+118;TEST_RT;RT57those.wav;BT57those.wav;th;th;I want <b><i>those</i></b> shoes
+119;TEST_AT;AT55bathe.wav;BT55bathe.wav;the;the;He likes to <b><i>bathe</i></b>
+120;TEST_BT;BT55death.wav;AT55death.wav;th;th;What causes sudden <b><i>death</i></b>?
+121;TEST_AT;AT55look.wav;BT55look.wav;oo;oo;I always <b><i>look</i></b> good
+122;TEST_AT;AT55lot.wav;BT55lot.wav;o;o;I like him a <b><i>lot</i></b>
+123;TEST_BT;BT55thanks.wav;AT55thanks.wav;th;th;He did not even say <b><i>thanks</i></b>
+124;TEST_BT;BT55those.wav;AT55those.wav;th;th;I want <b><i>those</i></b> shoes
+125;TEST_RT;RT55bathe.wav;AT55bathe.wav;the;the;He likes to <b><i>bathe</i></b>
+126;TEST_AT;AT55death.wav;RT55death.wav;th;th;What causes sudden <b><i>death</i></b>?
+127;TEST_RT;RT55look.wav;AT55look.wav;oo;oo;I always <b><i>look</i></b> good
+128;TEST_AT;AT55lot.wav;RT55lot.wav;o;o;I like him a <b><i>lot</i></b>
+129;TEST_AT;AT55thanks.wav;RT55thanks.wav;th;th;He did not even say <b><i>thanks</i></b>
+130;TEST_AT;AT55those.wav;RT55those.wav;th;th;I want <b><i>those</i></b> shoes
+131;TEST_RT;RT55bathe.wav;BT55bathe.wav;the;the;He likes to <b><i>bathe</i></b>
+132;TEST_RT;RT55death.wav;BT55death.wav;th;th;What causes sudden <b><i>death</i></b>?
+133;TEST_BT;BT55look.wav;RT55look.wav;oo;oo;I always <b><i>look</i></b> good
+134;TEST_RT;RT55lot.wav;BT55lot.wav;o;o;I like him a <b><i>lot</i></b>
+135;TEST_BT;BT55thanks.wav;RT55thanks.wav;th;th;He did not even say <b><i>thanks</i></b>
+136;TEST_RT;RT55those.wav;BT55those.wav;th;th;I want <b><i>those</i></b> shoes
+137;TEST_AT;AT64bathe.wav;BT64bathe.wav;the;the;He likes to <b><i>bathe</i></b>
+138;TEST_BT;BT64death.wav;AT64death.wav;th;th;What causes sudden <b><i>death</i></b>?
+139;TEST_AT;AT64look.wav;BT64look.wav;oo;oo;I always <b><i>look</i></b> good
+140;TEST_AT;AT64lot.wav;BT64lot.wav;o;o;I like him a <b><i>lot</i></b>
+141;TEST_BT;BT64thanks.wav;AT64thanks.wav;th;th;He did not even say <b><i>thanks</i></b>
+142;TEST_BT;BT64those.wav;AT64those.wav;th;th;I want <b><i>those</i></b> shoes
+143;TEST_RT;RT64bathe.wav;AT64bathe.wav;the;the;He likes to <b><i>bathe</i></b>
+144;TEST_AT;AT64death.wav;RT64death.wav;th;th;What causes sudden <b><i>death</i></b>?
+145;TEST_RT;RT64look.wav;AT64look.wav;oo;oo;I always <b><i>look</i></b> good
+146;TEST_AT;AT64lot.wav;RT64lot.wav;o;o;I like him a <b><i>lot</i></b>
+147;TEST_AT;AT64thanks.wav;RT64thanks.wav;th;th;He did not even say <b><i>thanks</i></b>
+148;TEST_AT;AT64those.wav;RT64those.wav;th;th;I want <b><i>those</i></b> shoes
+149;TEST_RT;RT64bathe.wav;BT64bathe.wav;the;the;He likes to <b><i>bathe</i></b>
+150;TEST_RT;RT64death.wav;BT64death.wav;th;th;What causes sudden <b><i>death</i></b>?
+151;TEST_BT;BT64look.wav;RT64look.wav;oo;oo;I always <b><i>look</i></b> good
+152;TEST_RT;RT64lot.wav;BT64lot.wav;o;o;I like him a <b><i>lot</i></b>
+153;TEST_BT;BT64thanks.wav;RT64thanks.wav;th;th;He did not even say <b><i>thanks</i></b>
+154;TEST_RT;RT64those.wav;BT64those.wav;th;th;I want <b><i>those</i></b> shoes
+155;TEST_AT;AT73bathe.wav;BT73bathe.wav;the;the;He likes to <b><i>bathe</i></b>
+156;TEST_BT;BT73death.wav;AT73death.wav;th;th;What causes sudden <b><i>death</i></b>?
+157;TEST_AT;AT73look.wav;BT73look.wav;oo;oo;I always <b><i>look</i></b> good
+158;TEST_AT;AT73lot.wav;BT73lot.wav;o;o;I like him a <b><i>lot</i></b>
+159;TEST_BT;BT73thanks.wav;AT73thanks.wav;th;th;He did not even say <b><i>thanks</i></b>
+160;TEST_BT;BT73those.wav;AT73those.wav;th;th;I want <b><i>those</i></b> shoes
+161;TEST_RT;RT73bathe.wav;AT73bathe.wav;the;the;He likes to <b><i>bathe</i></b>
+162;TEST_AT;AT73death.wav;RT73death.wav;th;th;What causes sudden <b><i>death</i></b>?
+163;TEST_RT;RT73look.wav;AT73look.wav;oo;oo;I always <b><i>look</i></b> good
+164;TEST_AT;AT73lot.wav;RT73lot.wav;o;o;I like him a <b><i>lot</i></b>
+165;TEST_AT;AT73thanks.wav;RT73thanks.wav;th;th;He did not even say <b><i>thanks</i></b>
+166;TEST_AT;AT73those.wav;RT73those.wav;th;th;I want <b><i>those</i></b> shoes
+167;TEST_RT;RT73bathe.wav;BT73bathe.wav;the;the;He likes to <b><i>bathe</i></b>
+168;TEST_RT;RT73death.wav;BT73death.wav;th;th;What causes sudden <b><i>death</i></b>?
+169;TEST_BT;BT73look.wav;RT73look.wav;oo;oo;I always <b><i>look</i></b> good
+170;TEST_RT;RT73lot.wav;BT73lot.wav;o;o;I like him a <b><i>lot</i></b>
+171;TEST_BT;BT73thanks.wav;RT73thanks.wav;th;th;He did not even say <b><i>thanks</i></b>
+172;TEST_RT;RT73those.wav;BT73those.wav;th;th;I want <b><i>those</i></b> shoes
+173;TEST_AT;AT71bathe.wav;BT71bathe.wav;the;the;He likes to <b><i>bathe</i></b>
+174;TEST_BT;BT71death.wav;AT71death.wav;th;th;What causes sudden <b><i>death</i></b>?
+175;TEST_AT;AT71look.wav;BT71look.wav;oo;oo;I always <b><i>look</i></b> good
+176;TEST_AT;AT71lot.wav;BT71lot.wav;o;o;I like him a <b><i>lot</i></b>
+177;TEST_BT;BT71thanks.wav;AT71thanks.wav;th;th;He did not even say <b><i>thanks</i></b>
+178;TEST_BT;BT71those.wav;AT71those.wav;th;th;I want <b><i>those</i></b> shoes
+179;TEST_RT;RT71bathe.wav;AT71bathe.wav;the;the;He likes to <b><i>bathe</i></b>
+180;TEST_AT;AT71death.wav;RT71death.wav;th;th;What causes sudden <b><i>death</i></b>?
+181;TEST_RT;RT71look.wav;AT71look.wav;oo;oo;I always <b><i>look</i></b> good
+182;TEST_AT;AT71lot.wav;RT71lot.wav;o;o;I like him a <b><i>lot</i></b>
+183;TEST_AT;AT71thanks.wav;RT71thanks.wav;th;th;He did not even say <b><i>thanks</i></b>
+184;TEST_AT;AT71those.wav;RT71those.wav;th;th;I want <b><i>those</i></b> shoes
+185;TEST_RT;RT71bathe.wav;BT71bathe.wav;the;the;He likes to <b><i>bathe</i></b>
+186;TEST_RT;RT71death.wav;BT71death.wav;th;th;What causes sudden <b><i>death</i></b>?
+187;TEST_BT;BT71look.wav;RT71look.wav;oo;oo;I always <b><i>look</i></b> good
+188;TEST_RT;RT71lot.wav;BT71lot.wav;o;o;I like him a <b><i>lot</i></b>
+189;TEST_BT;BT71thanks.wav;RT71thanks.wav;th;th;He did not even say <b><i>thanks</i></b>
+190;TEST_RT;RT71those.wav;BT71those.wav;th;th;I want <b><i>those</i></b> shoes
+191;TEST_AT;AT65bathe.wav;BT65bathe.wav;the;the;He likes to <b><i>bathe</i></b>
+192;TEST_BT;BT65death.wav;AT65death.wav;th;th;What causes sudden <b><i>death</i></b>?
+193;TEST_AT;AT65look.wav;BT65look.wav;oo;oo;I always <b><i>look</i></b> good
+194;TEST_AT;AT65lot.wav;BT65lot.wav;o;o;I like him a <b><i>lot</i></b>
+195;TEST_BT;BT65thanks.wav;AT65thanks.wav;th;th;He did not even say <b><i>thanks</i></b>
+196;TEST_BT;BT65those.wav;AT65those.wav;th;th;I want <b><i>those</i></b> shoes
+197;TEST_RT;RT65bathe.wav;AT65bathe.wav;the;the;He likes to <b><i>bathe</i></b>
+198;TEST_AT;AT65death.wav;RT65death.wav;th;th;What causes sudden <b><i>death</i></b>?
+199;TEST_RT;RT65look.wav;AT65look.wav;oo;oo;I always <b><i>look</i></b> good
+200;TEST_AT;AT65lot.wav;RT65lot.wav;o;o;I like him a <b><i>lot</i></b>
+201;TEST_AT;AT65thanks.wav;RT65thanks.wav;th;th;He did not even say <b><i>thanks</i></b>
+202;TEST_AT;AT65those.wav;RT65those.wav;th;th;I want <b><i>those</i></b> shoes
+203;TEST_RT;RT65bathe.wav;BT65bathe.wav;the;the;He likes to <b><i>bathe</i></b>
+204;TEST_RT;RT65death.wav;BT65death.wav;th;th;What causes sudden <b><i>death</i></b>?
+205;TEST_BT;BT65look.wav;RT65look.wav;oo;oo;I always <b><i>look</i></b> good
+206;TEST_RT;RT65lot.wav;BT65lot.wav;o;o;I like him a <b><i>lot</i></b>
+207;TEST_BT;BT65thanks.wav;RT65thanks.wav;th;th;He did not even say <b><i>thanks</i></b>
+208;TEST_RT;RT65those.wav;BT65those.wav;th;th;I want <b><i>those</i></b> shoes
+209;TEST_AT;AT68bathe.wav;BT68bathe.wav;the;the;He likes to <b><i>bathe</i></b>
+210;TEST_BT;BT68death.wav;AT68death.wav;th;th;What causes sudden <b><i>death</i></b>?
+211;TEST_AT;AT68look.wav;BT68look.wav;oo;oo;I always <b><i>look</i></b> good
+212;TEST_AT;AT68lot.wav;BT68lot.wav;o;o;I like him a <b><i>lot</i></b>
+213;TEST_BT;BT68thanks.wav;AT68thanks.wav;th;th;He did not even say <b><i>thanks</i></b>
+214;TEST_BT;BT68those.wav;AT68those.wav;th;th;I want <b><i>those</i></b> shoes
+215;TEST_RT;RT68bathe.wav;AT68bathe.wav;the;the;He likes to <b><i>bathe</i></b>
+216;TEST_AT;AT68death.wav;RT68death.wav;th;th;What causes sudden <b><i>death</i></b>?
+217;TEST_RT;RT68look.wav;AT68look.wav;oo;oo;I always <b><i>look</i></b> good
+218;TEST_AT;AT68lot.wav;RT68lot.wav;o;o;I like him a <b><i>lot</i></b>
+219;TEST_AT;AT68thanks.wav;RT68thanks.wav;th;th;He did not even say <b><i>thanks</i></b>
+220;TEST_AT;AT68those.wav;RT68those.wav;th;th;I want <b><i>those</i></b> shoes
+221;TEST_RT;RT68bathe.wav;BT68bathe.wav;the;the;He likes to <b><i>bathe</i></b>
+222;TEST_RT;RT68death.wav;BT68death.wav;th;th;What causes sudden <b><i>death</i></b>?
+223;TEST_BT;BT68look.wav;RT68look.wav;oo;oo;I always <b><i>look</i></b> good
+224;TEST_RT;RT68lot.wav;BT68lot.wav;o;o;I like him a <b><i>lot</i></b>
+225;TEST_BT;BT68thanks.wav;RT68thanks.wav;th;th;He did not even say <b><i>thanks</i></b>
+226;TEST_RT;RT68those.wav;BT68those.wav;th;th;I want <b><i>those</i></b> shoes
+227;TEST_AT;AT62bathe.wav;BT62bathe.wav;the;the;He likes to <b><i>bathe</i></b>
+228;TEST_BT;BT62death.wav;AT62death.wav;th;th;What causes sudden <b><i>death</i></b>?
+229;TEST_AT;AT62look.wav;BT62look.wav;oo;oo;I always <b><i>look</i></b> good
+230;TEST_AT;AT62lot.wav;BT62lot.wav;o;o;I like him a <b><i>lot</i></b>
+231;TEST_BT;BT62thanks.wav;AT62thanks.wav;th;th;He did not even say <b><i>thanks</i></b>
+232;TEST_BT;BT62those.wav;AT62those.wav;th;th;I want <b><i>those</i></b> shoes
+233;TEST_RT;RT62bathe.wav;AT62bathe.wav;the;the;He likes to <b><i>bathe</i></b>
+234;TEST_AT;AT62death.wav;RT62death.wav;th;th;What causes sudden <b><i>death</i></b>?
+235;TEST_RT;RT62look.wav;AT62look.wav;oo;oo;I always <b><i>look</i></b> good
+236;TEST_AT;AT62lot.wav;RT62lot.wav;o;o;I like him a <b><i>lot</i></b>
+237;TEST_AT;AT62thanks.wav;RT62thanks.wav;th;th;He did not even say <b><i>thanks</i></b>
+238;TEST_AT;AT62those.wav;RT62those.wav;th;th;I want <b><i>those</i></b> shoes
+239;TEST_RT;RT62bathe.wav;BT62bathe.wav;the;the;He likes to <b><i>bathe</i></b>
+240;TEST_RT;RT62death.wav;BT62death.wav;th;th;What causes sudden <b><i>death</i></b>?
+241;TEST_BT;BT62look.wav;RT62look.wav;oo;oo;I always <b><i>look</i></b> good
+242;TEST_RT;RT62lot.wav;BT62lot.wav;o;o;I like him a <b><i>lot</i></b>
+243;TEST_BT;BT62thanks.wav;RT62thanks.wav;th;th;He did not even say <b><i>thanks</i></b>
+244;TEST_RT;RT62those.wav;BT62those.wav;th;th;I want <b><i>those</i></b> shoes
+245;TEST_AT;AT56bathe.wav;BT56bathe.wav;the;the;He likes to <b><i>bathe</i></b>
+246;TEST_BT;BT56death.wav;AT56death.wav;th;th;What causes sudden <b><i>death</i></b>?
+247;TEST_AT;AT56look.wav;BT56look.wav;oo;oo;I always <b><i>look</i></b> good
+248;TEST_AT;AT56lot.wav;BT56lot.wav;o;o;I like him a <b><i>lot</i></b>
+249;TEST_BT;BT56thanks.wav;AT56thanks.wav;th;th;He did not even say <b><i>thanks</i></b>
+250;TEST_BT;BT56those.wav;AT56those.wav;th;th;I want <b><i>those</i></b> shoes
+251;TEST_RT;RT56bathe.wav;AT56bathe.wav;the;the;He likes to <b><i>bathe</i></b>
+252;TEST_AT;AT56death.wav;RT56death.wav;th;th;What causes sudden <b><i>death</i></b>?
+253;TEST_RT;RT56look.wav;AT56look.wav;oo;oo;I always <b><i>look</i></b> good
+254;TEST_AT;AT56lot.wav;RT56lot.wav;o;o;I like him a <b><i>lot</i></b>
+255;TEST_AT;AT56thanks.wav;RT56thanks.wav;th;th;He did not even say <b><i>thanks</i></b>
+256;TEST_AT;AT56those.wav;RT56those.wav;th;th;I want <b><i>those</i></b> shoes
+257;TEST_RT;RT56bathe.wav;BT56bathe.wav;the;the;He likes to <b><i>bathe</i></b>
+258;TEST_RT;RT56death.wav;BT56death.wav;th;th;What causes sudden <b><i>death</i></b>?
+259;TEST_BT;BT56look.wav;RT56look.wav;oo;oo;I always <b><i>look</i></b> good
+260;TEST_RT;RT56lot.wav;BT56lot.wav;o;o;I like him a <b><i>lot</i></b>
+261;TEST_BT;BT56thanks.wav;RT56thanks.wav;th;th;He did not even say <b><i>thanks</i></b>
+262;TEST_RT;RT56those.wav;BT56those.wav;th;th;I want <b><i>those</i></b> shoes
+263;TEST_AT;AT70bathe.wav;BT70bathe.wav;the;the;He likes to <b><i>bathe</i></b>
+264;TEST_BT;BT70death.wav;AT70death.wav;th;th;What causes sudden <b><i>death</i></b>?
+265;TEST_AT;AT70look.wav;BT70look.wav;oo;oo;I always <b><i>look</i></b> good
+266;TEST_AT;AT70lot.wav;BT70lot.wav;o;o;I like him a <b><i>lot</i></b>
+267;TEST_BT;BT70thanks.wav;AT70thanks.wav;th;th;He did not even say <b><i>thanks</i></b>
+268;TEST_BT;BT70those.wav;AT70those.wav;th;th;I want <b><i>those</i></b> shoes
+269;TEST_RT;RT70bathe.wav;AT70bathe.wav;the;the;He likes to <b><i>bathe</i></b>
+270;TEST_AT;AT70death.wav;RT70death.wav;th;th;What causes sudden <b><i>death</i></b>?
+271;TEST_RT;RT70look.wav;AT70look.wav;oo;oo;I always <b><i>look</i></b> good
+272;TEST_AT;AT70lot.wav;RT70lot.wav;o;o;I like him a <b><i>lot</i></b>
+273;TEST_AT;AT70thanks.wav;RT70thanks.wav;th;th;He did not even say <b><i>thanks</i></b>
+274;TEST_AT;AT70those.wav;RT70those.wav;th;th;I want <b><i>those</i></b> shoes
+275;TEST_RT;RT70bathe.wav;BT70bathe.wav;the;the;He likes to <b><i>bathe</i></b>
+276;TEST_RT;RT70death.wav;BT70death.wav;th;th;What causes sudden <b><i>death</i></b>?
+277;TEST_BT;BT70look.wav;RT70look.wav;oo;oo;I always <b><i>look</i></b> good
+278;TEST_RT;RT70lot.wav;BT70lot.wav;o;o;I like him a <b><i>lot</i></b>
+279;TEST_BT;BT70thanks.wav;RT70thanks.wav;th;th;He did not even say <b><i>thanks</i></b>
+280;TEST_RT;RT70those.wav;BT70those.wav;th;th;I want <b><i>those</i></b> shoes
+281;TEST_AT;AT69bathe.wav;BT69bathe.wav;the;the;He likes to <b><i>bathe</i></b>
+282;TEST_BT;BT69death.wav;AT69death.wav;th;th;What causes sudden <b><i>death</i></b>?
+283;TEST_AT;AT69look.wav;BT69look.wav;oo;oo;I always <b><i>look</i></b> good
+284;TEST_AT;AT69lot.wav;BT69lot.wav;o;o;I like him a <b><i>lot</i></b>
+285;TEST_BT;BT69thanks.wav;AT69thanks.wav;th;th;He did not even say <b><i>thanks</i></b>
+286;TEST_BT;BT69those.wav;AT69those.wav;th;th;I want <b><i>those</i></b> shoes
+287;TEST_RT;RT69bathe.wav;AT69bathe.wav;the;the;He likes to <b><i>bathe</i></b>
+288;TEST_AT;AT69death.wav;RT69death.wav;th;th;What causes sudden <b><i>death</i></b>?
+289;TEST_RT;RT69look.wav;AT69look.wav;oo;oo;I always <b><i>look</i></b> good
+290;TEST_AT;AT69lot.wav;RT69lot.wav;o;o;I like him a <b><i>lot</i></b>
+291;TEST_AT;AT69thanks.wav;RT69thanks.wav;th;th;He did not even say <b><i>thanks</i></b>
+292;TEST_AT;AT69those.wav;RT69those.wav;th;th;I want <b><i>those</i></b> shoes
+293;TEST_RT;RT69bathe.wav;BT69bathe.wav;the;the;He likes to <b><i>bathe</i></b>
+294;TEST_RT;RT69death.wav;BT69death.wav;th;th;What causes sudden <b><i>death</i></b>?
+295;TEST_BT;BT69look.wav;RT69look.wav;oo;oo;I always <b><i>look</i></b> good
+296;TEST_RT;RT69lot.wav;BT69lot.wav;o;o;I like him a <b><i>lot</i></b>
+297;TEST_BT;BT69thanks.wav;RT69thanks.wav;th;th;He did not even say <b><i>thanks</i></b>
+298;TEST_RT;RT69those.wav;BT69those.wav;th;th;I want <b><i>those</i></b> shoes
+299;TEST_BT;BT60death.wav;AT60death.wav;th;th;What causes sudden <b><i>death</i></b>?
+300;TEST_AT;AT60lot.wav;BT60lot.wav;o;o;I like him a <b><i>lot</i></b>
+301;TEST_BT;BT60thanks.wav;AT60thanks.wav;th;th;He did not even say <b><i>thanks</i></b>
+302;TEST_BT;BT60those.wav;AT60those.wav;th;th;I want <b><i>those</i></b> shoes
+303;TEST_AT;AT60death.wav;RT60death.wav;th;th;What causes sudden <b><i>death</i></b>?
+304;TEST_AT;AT60lot.wav;RT60lot.wav;o;o;I like him a <b><i>lot</i></b>
+305;TEST_AT;AT60thanks.wav;RT60thanks.wav;th;th;He did not even say <b><i>thanks</i></b>
+306;TEST_AT;AT60those.wav;RT60those.wav;th;th;I want <b><i>those</i></b> shoes
+307;TEST_RT;RT60death.wav;BT60death.wav;th;th;What causes sudden <b><i>death</i></b>?
+308;TEST_RT;RT60lot.wav;BT60lot.wav;o;o;I like him a <b><i>lot</i></b>
+309;TEST_BT;BT60thanks.wav;RT60thanks.wav;th;th;He did not even say <b><i>thanks</i></b>
+310;TEST_RT;RT60those.wav;BT60those.wav;th;th;I want <b><i>those</i></b> shoes
+311;TEST_AT;AT74bathe.wav;BT74bathe.wav;the;the;He likes to <b><i>bathe</i></b>
+312;TEST_BT;BT74death.wav;AT74death.wav;th;th;What causes sudden <b><i>death</i></b>?
+313;TEST_AT;AT74look.wav;BT74look.wav;oo;oo;I always <b><i>look</i></b> good
+314;TEST_BT;BT74thanks.wav;AT74thanks.wav;th;th;He did not even say <b><i>thanks</i></b>
+315;TEST_BT;BT74those.wav;AT74those.wav;th;th;I want <b><i>those</i></b> shoes
+316;TEST_RT;RT74bathe.wav;AT74bathe.wav;the;the;He likes to <b><i>bathe</i></b>
+317;TEST_AT;AT74death.wav;RT74death.wav;th;th;What causes sudden <b><i>death</i></b>?
+318;TEST_RT;RT74look.wav;AT74look.wav;oo;oo;I always <b><i>look</i></b> good
+319;TEST_AT;AT74thanks.wav;RT74thanks.wav;th;th;He did not even say <b><i>thanks</i></b>
+320;TEST_AT;AT74those.wav;RT74those.wav;th;th;I want <b><i>those</i></b> shoes
+321;TEST_RT;RT74bathe.wav;BT74bathe.wav;the;the;He likes to <b><i>bathe</i></b>
+322;TEST_RT;RT74death.wav;BT74death.wav;th;th;What causes sudden <b><i>death</i></b>?
+323;TEST_BT;BT74look.wav;RT74look.wav;oo;oo;I always <b><i>look</i></b> good
+324;TEST_RT;RT74lot.wav;BT74lot.wav;o;o;I like him a <b><i>lot</i></b>
+325;TEST_BT;BT74thanks.wav;RT74thanks.wav;th;th;He did not even say <b><i>thanks</i></b>
+326;TEST_RT;RT74those.wav;BT74those.wav;th;th;I want <b><i>those</i></b> shoes
+327;TEST_AT;AT58bathe.wav;BT58bathe.wav;the;the;He likes to <b><i>bathe</i></b>
+328;TEST_BT;BT58death.wav;AT58death.wav;th;th;What causes sudden <b><i>death</i></b>?
+329;TEST_AT;AT58look.wav;BT58look.wav;oo;oo;I always <b><i>look</i></b> good
+330;TEST_AT;AT58lot.wav;BT58lot.wav;o;o;I like him a <b><i>lot</i></b>
+331;TEST_BT;BT58thanks.wav;AT58thanks.wav;th;th;He did not even say <b><i>thanks</i></b>
+332;TEST_BT;BT58those.wav;AT58those.wav;th;th;I want <b><i>those</i></b> shoes
+333;TEST_RT;RT58bathe.wav;AT58bathe.wav;the;the;He likes to <b><i>bathe</i></b>
+334;TEST_AT;AT58death.wav;RT58death.wav;th;th;What causes sudden <b><i>death</i></b>?
+335;TEST_AT;AT58lot.wav;RT58lot.wav;o;o;I like him a <b><i>lot</i></b>
+336;TEST_AT;AT58thanks.wav;RT58thanks.wav;th;th;He did not even say <b><i>thanks</i></b>
+337;TEST_AT;AT58those.wav;RT58those.wav;th;th;I want <b><i>those</i></b> shoes
+338;TEST_RT;RT58bathe.wav;BT58bathe.wav;the;the;He likes to <b><i>bathe</i></b>
+339;TEST_RT;RT58death.wav;BT58death.wav;th;th;What causes sudden <b><i>death</i></b>?
+340;TEST_RT;RT58lot.wav;BT58lot.wav;o;o;I like him a <b><i>lot</i></b>
+341;TEST_BT;BT58thanks.wav;RT58thanks.wav;th;th;He did not even say <b><i>thanks</i></b>
+342;TEST_RT;RT58those.wav;BT58those.wav;th;th;I want <b><i>those</i></b> shoes
+343;TEST_AT;AT66bathe.wav;BT66bathe.wav;the;the;He likes to <b><i>bathe</i></b>
+344;TEST_BT;BT66death.wav;AT66death.wav;th;th;What causes sudden <b><i>death</i></b>?
+345;TEST_AT;AT66look.wav;BT66look.wav;oo;oo;I always <b><i>look</i></b> good
+346;TEST_AT;AT66lot.wav;BT66lot.wav;o;o;I like him a <b><i>lot</i></b>
+347;TEST_BT;BT66thanks.wav;AT66thanks.wav;th;th;He did not even say <b><i>thanks</i></b>
+348;TEST_RT;RT66bathe.wav;AT66bathe.wav;the;the;He likes to <b><i>bathe</i></b>
+349;TEST_AT;AT66death.wav;RT66death.wav;th;th;What causes sudden <b><i>death</i></b>?
+350;TEST_RT;RT66look.wav;AT66look.wav;oo;oo;I always <b><i>look</i></b> good
+351;TEST_AT;AT66lot.wav;RT66lot.wav;o;o;I like him a <b><i>lot</i></b>
+352;TEST_AT;AT66thanks.wav;RT66thanks.wav;th;th;He did not even say <b><i>thanks</i></b>
+353;TEST_RT;RT66bathe.wav;BT66bathe.wav;the;the;He likes to <b><i>bathe</i></b>
+354;TEST_RT;RT66death.wav;BT66death.wav;th;th;What causes sudden <b><i>death</i></b>?
+355;TEST_BT;BT66look.wav;RT66look.wav;oo;oo;I always <b><i>look</i></b> good
+356;TEST_RT;RT66lot.wav;BT66lot.wav;o;o;I like him a <b><i>lot</i></b>
+357;TEST_BT;BT66thanks.wav;RT66thanks.wav;th;th;He did not even say <b><i>thanks</i></b>
+358;TEST_BT;BT61death.wav;AT61death.wav;th;th;What causes sudden <b><i>death</i></b>?
+359;TEST_AT;AT61look.wav;BT61look.wav;oo;oo;I always <b><i>look</i></b> good
+360;TEST_AT;AT61lot.wav;BT61lot.wav;o;o;I like him a <b><i>lot</i></b>
+361;TEST_BT;BT61thanks.wav;AT61thanks.wav;th;th;He did not even say <b><i>thanks</i></b>
+362;TEST_BT;BT61those.wav;AT61those.wav;th;th;I want <b><i>those</i></b> shoes
+363;TEST_AT;AT61death.wav;RT61death.wav;th;th;What causes sudden <b><i>death</i></b>?
+364;TEST_RT;RT61look.wav;AT61look.wav;oo;oo;I always <b><i>look</i></b> good
+365;TEST_AT;AT61lot.wav;RT61lot.wav;o;o;I like him a <b><i>lot</i></b>
+366;TEST_AT;AT61thanks.wav;RT61thanks.wav;th;th;He did not even say <b><i>thanks</i></b>
+367;TEST_AT;AT61those.wav;RT61those.wav;th;th;I want <b><i>those</i></b> shoes
+368;TEST_RT;RT61bathe.wav;BT61bathe.wav;the;the;He likes to <b><i>bathe</i></b>
+369;TEST_RT;RT61death.wav;BT61death.wav;th;th;What causes sudden <b><i>death</i></b>?
+370;TEST_BT;BT61look.wav;RT61look.wav;oo;oo;I always <b><i>look</i></b> good
+371;TEST_RT;RT61lot.wav;BT61lot.wav;o;o;I like him a <b><i>lot</i></b>
+372;TEST_BT;BT61thanks.wav;RT61thanks.wav;th;th;He did not even say <b><i>thanks</i></b>
+373;TEST_RT;RT61those.wav;BT61those.wav;th;th;I want <b><i>those</i></b> shoes
